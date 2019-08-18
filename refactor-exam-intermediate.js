@@ -51,7 +51,9 @@ module.exports = (config = {}) => {
         } else {
             return reject("error action");
         }
-        if (errorMsg.length) return reject(errorMsg.join(","));
+        if (errorMsg.length) {
+            return reject(errorMsg.join(","));
+        }
         const newParamArr = Object.keys(param).sort();
         //首字母小写转大写
         const toUpper = (str) => str.replace(str[0], str[0].toUpperCase());
