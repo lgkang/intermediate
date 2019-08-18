@@ -10,9 +10,7 @@ const config = {
 (async () => {
     try {
         await sdk(config);
-        console.log('发送成功');
     } catch (e) {
-        console.log('发送失败');
         console.log(e);
     }
 })();

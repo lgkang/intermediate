@@ -41,12 +41,16 @@ module.exports = (config = {}) => {
                 addressType,
                 templateCode,
             };
-            if(tagName) configParam.tagName = tagName;
+            if(tagName) {
+                configParam.tagName = tagName;
+            }
             !config.templateName && errorMsg.push("templateName required");
             !config.receiversName && errorMsg.push("receiversName required");
             //合并参数，以config优先
             Object.assign(param, configParam);
-        } else return reject("error action");
+        } else {
+            return reject("error action");
+        }
         if (errorMsg.length) return reject(errorMsg.join(","));
         const newParamArr = Object.keys(param).sort();
         //首字母小写转大写
@@ -57,7 +61,9 @@ module.exports = (config = {}) => {
             //不是最后一项时，添加‘&’
             signStr = signStr + encodeURIComponent(toUpper(key)) + "=" + encodeURIComponent(param[key]) + (!bol ? "&" : "");
             reqBody = reqBody + toUpper(key) + "=" + param[key] + (!bol ? "&" : "");
-            if (bol) signStr = "POST&%2F&" + encodeURIComponent(signStr);
+            if (bol) {
+                signStr = "POST&%2F&" + encodeURIComponent(signStr);
+            }
         });
         //加密签名
         const sign = crypto.createHmac("sha1", config.accessKeySecret + "&").update(signStr).digest("base64");
