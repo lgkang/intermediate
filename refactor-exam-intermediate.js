@@ -13,7 +13,7 @@ module.exports = (config = {}) => {
             timestamp: date.toISOString(),
             version: "2015-11-23",
         };
-        ["accessKeyID", "accessKeySecret", "accountName"].forEach(key => {
+        ["accessKeyID", "accessKeySecret", "accountName"].forEach((key) => {
             !config[key] && errorMsg.push(`${key} required`);
         });
         if (config.action === "single") {
@@ -54,7 +54,7 @@ module.exports = (config = {}) => {
         if (errorMsg.length) return reject(errorMsg.join(","));
         const newParamArr = Object.keys(param).sort();
         //首字母小写转大写
-        const toUpper = str => str.replace(str[0], str[0].toUpperCase());
+        const toUpper = (str) => str.replace(str[0], str[0].toUpperCase());
         let signStr = "", reqBody = "";
         newParamArr.forEach((key, index) => {
             const bol = index === newParamArr.length - 1;

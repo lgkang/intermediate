@@ -11,6 +11,5 @@ const config = {
     try {
         await sdk(config);
     } catch (e) {
-        console.log(e);
     }
 })();
