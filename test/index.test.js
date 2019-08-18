@@ -13,9 +13,9 @@ const config = {
         const copyConfig = JSON.parse(JSON.stringify(config));
         copyConfig.action = "";
         return sdk(copyConfig)
-            .then(res => {
+            .then((res) => {
             })
-            .catch(e => {
+            .catch((e) => {
                 expect(e).toBe("error action");
             });
     });
@@ -23,17 +23,17 @@ const config = {
         const copyConfig = JSON.parse(JSON.stringify(config));
         copyConfig.accessKeyID = "";
         return sdk(copyConfig)
-            .then(res => {
+            .then((res) => {
             })
-            .catch(e => {
+            .catch((e) => {
                 expect(e).toBe("accessKeyID required");
             });
     });
     test("测试非法请求的情况", () => {
         return sdk(config)
-            .then(res => {
+            .then((res) => {
             })
-            .catch(e => {
+            .catch((e) => {
                 console.log(e);
             });
     });

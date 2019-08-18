@@ -1,5 +1,4 @@
 const sdk = require("./refactor-exam-intermediate");
-const originalSdk = require("./exam-intermediate");
 const config = {
     action: "batch",
     accessKeyID: "12345",
@@ -8,12 +7,6 @@ const config = {
     templateName: "你好",
     receiversName: "gk"
 };
-
-// function cb(e) {
-//     console.log(e);
-// }
-// originalSdk(config, cb);
-
 (async () => {
     try {
         await sdk(config);
